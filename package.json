@@ -1,0 +1,12 @@
+{
+  "name": "nova-os",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NOVA-OS - Futuristic Operating System Concept",
+  "scripts": {
+    "dev": "npm --prefix nova run dev",
+    "build": "npm --prefix nova run build",
+    "lint": "npm --prefix nova run lint",
+    "preview": "npm --prefix nova run preview"
+  }
+}

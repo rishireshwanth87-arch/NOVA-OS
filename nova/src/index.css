@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+:root, .dark {
+  --nova-bg: #0b0c10;
+  --nova-surface: #12131c;
+  --nova-surface-border: rgba(255, 255, 255, 0.1);
+  --nova-surface-hover: rgba(255, 255, 255, 0.05);
+  --nova-text-primary: #f8fafc;
+  --nova-text-secondary: #94a3b8;
+  --nova-text-muted: #64748b;
+  --nova-accent: #00f0ff;
+  --nova-accent-glow: rgba(0, 240, 255, 0.15);
+  --nova-accent-hover: #33f3ff;
+  --nova-dock-bg: rgba(18, 19, 28, 0.88);
+  --nova-systembar-bg: rgba(18, 19, 28, 0.92);
+  --nova-window-bg: rgba(20, 22, 34, 0.96);
+  --nova-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.light {
+  --nova-bg: #f8fafc;
+  --nova-surface: #ffffff;
+  --nova-surface-border: rgba(0, 0, 0, 0.12);
+  --nova-surface-hover: rgba(0, 0, 0, 0.05);
+  --nova-text-primary: #0f172a;
+  --nova-text-secondary: #475569;
+  --nova-text-muted: #94a3b8;
+  --nova-accent: #0284c7;
+  --nova-accent-glow: rgba(2, 132, 199, 0.15);
+  --nova-accent-hover: #0369a1;
+  --nova-dock-bg: rgba(255, 255, 255, 0.92);
+  --nova-systembar-bg: rgba(248, 250, 252, 0.95);
+  --nova-window-bg: rgba(255, 255, 255, 0.98);
+  --nova-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: var(--nova-bg, #0b0c10) !important;
+  color: var(--nova-text-primary, #f8fafc) !important;
+  font-family: 'Ubuntu', 'Cantarell', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.01em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body, button, input, select, textarea {
+  font-family: 'Ubuntu', 'Cantarell', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Accent Color Variations */
+[data-accent="indigo"] {
+  --nova-accent: #6366f1;
+  --nova-accent-glow: rgba(99, 102, 241, 0.15);
+  --nova-accent-hover: #818cf8;
+}
+[data-accent="emerald"] {
+  --nova-accent: #10b981;
+  --nova-accent-glow: rgba(16, 185, 129, 0.15);
+  --nova-accent-hover: #34d399;
+}
+[data-accent="amber"] {
+  --nova-accent: #f59e0b;
+  --nova-accent-glow: rgba(245, 158, 11, 0.15);
+  --nova-accent-hover: #fbbf24;
+}
+
+/* Structural Components CSS */
+.nova-bootscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--nova-bg);
+  color: var(--nova-text-primary);
+}
+
+.nova-desktop {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--nova-bg);
+}
+
+.nova-systembar {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--nova-systembar-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--nova-surface-border);
+  padding: 0 12px;
+  font-size: 12px;
+  box-sizing: border-box;
+  z-index: 40;
+}
+
+.nova-dock {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background-color: var(--nova-dock-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--nova-surface-border);
+  border-radius: 16px;
+  box-shadow: var(--nova-shadow);
+  z-index: 40;
+}
+
+.nova-window {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--nova-window-bg);
+  border: 1px solid var(--nova-surface-border);
+  box-shadow: var(--nova-shadow);
+}
+
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
